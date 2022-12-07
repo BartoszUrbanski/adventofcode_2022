@@ -1,8 +1,6 @@
 {:ok, body} = File.read("input.txt")
-small_letters = Enum.to_list(?a..?z) |> List.to_string |> String.graphemes
-capital_letters = Enum.to_list(?A..?Z) |> List.to_string |> String.graphemes
-all_letters = small_letters ++ capital_letters
-all_priorities = Enum.to_list(1..26) ++ Enum.to_list(27..52)
+all_letters = Enum.concat(?a..?z, ?A..?Z) |> List.to_string |> String.graphemes
+all_priorities = Enum.to_list(1..52)
 
 letter_priority = Enum.zip(all_letters, all_priorities) |> Enum.into(%{})
 
